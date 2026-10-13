@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Огород рядом — свежие овощи с доставкой</title>
+<meta name="description" content="Свежие овощи с грядки с доставкой на дом. Оплата при получении.">
+<meta name="theme-color" content="#2e7d32">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232e7d32'/%3E%3Cpath d='M16 24c-5-2.5-7.5-7-6.5-12 5-.8 9 1.8 10.5 6.5 1.2-4 4-6.3 8-6.3 0 6-4.4 10.4-12 11.8z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="demo-ribbon">Демо-версия для показа: заказы сохраняются только в этом браузере. <a href="#admin">Панель продавца</a>, пароль 1234</div>
+
+<!-- Магазин -->
+<div id="view-shop">
+  <header class="site-header">
+    <div class="wrap site-header-in">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#2e7d32"/><path d="M16 24c-5-2.5-7.5-7-6.5-12 5-.8 9 1.8 10.5 6.5 1.2-4 4-6.3 8-6.3 0 6-4.4 10.4-12 11.8z" fill="#fff"/></svg>
+        <span data-bind="shopName"></span>
+      </a>
+      <a class="header-phone" data-bind-href="tel"><span data-bind="phone"></span></a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <h1 data-bind="tagline"></h1>
+        <p class="hero-lead" data-bind="deliveryNote"></p>
+        <ul class="chips" id="chips"></ul>
+        <button type="button" class="btn btn-primary btn-lg" data-action="scroll-products">Выбрать овощи</button>
+      </div>
+      <div class="hero-img"><img src="img/hero.jpg" alt="Деревянный ящик со свежими овощами: огурцы, помидоры, картофель, морковь"></div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="section-head">
+        <h2>Что есть сегодня</h2>
+        <p>Собираем утром, привозим на следующий день</p>
+      </div>
+      <div class="grid" id="products"></div>
+    </section>
+
+    <section class="how">
+      <h2>Как заказать</h2>
+      <ol class="steps">
+        <li><b>Выберите овощи</b><span>Укажите, сколько килограммов или штук нужно.</span></li>
+        <li><b>Оформите заказ</b><span>Имя, телефон и адрес — меньше минуты.</span></li>
+        <li><b>Получите и оплатите</b><span>Привезём завтра. Оплата наличными или переводом при получении.</span></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><b data-bind="shopName"></b> · <a data-bind-href="tel"><span data-bind="phone"></span></a> · <a data-bind-href="mailto"><span data-bind="email"></span></a></p>
+      <p class="muted">ИП Фамилия Имя Отчество, ОГРНИП 000000000000000 · <a href="#policy">Политика конфиденциальности</a></p>
+    </div>
+  </footer>
+
+  <div class="cart-bar" id="cart-bar" aria-hidden="true"></div>
+</div>
+
+<!-- Панель продавца -->
+<div id="view-admin" hidden></div>
+
+<!-- Политика конфиденциальности -->
+<div id="view-policy" hidden>
+  <div class="wrap">
+    <article class="prose">
+      <a class="back-link" href="#">← Вернуться в магазин</a>
+      <h1>Политика обработки персональных данных</h1>
+      <p class="template-note">Это шаблон. Перед запуском в него подставляются данные вашего ИП, а текст вы проверяете сами или с юристом.</p>
+
+      <h2>Кто обрабатывает данные</h2>
+      <p>Магазин «<span data-bind="shopName"></span>»: ИП <mark>Фамилия Имя Отчество</mark>, ИНН <mark>000000000000</mark>, ОГРНИП <mark>000000000000000</mark>, адрес <mark>город, улица, дом</mark>. Связаться: <span data-bind="email"></span>, <span data-bind="phone"></span>.</p>
+
+      <h2>Какие данные мы получаем</h2>
+      <p>Имя, телефон, адрес доставки и комментарий к заказу — только то, что вы сами указываете при оформлении.</p>
+
+      <h2>Зачем</h2>
+      <p>Чтобы принять заказ, связаться с вами для подтверждения и привезти его. Рекламные рассылки без отдельного согласия мы не отправляем.</p>
+
+      <h2>Где и сколько хранятся</h2>
+      <p>На сервере в России. Мы храним данные, пока это нужно для выполнения заказа и учёта, и не дольше, чем требует закон. Третьим лицам не передаём, кроме случаев, которые прямо предусмотрены законом.</p>
+
+      <h2>Ваши права</h2>
+      <p>Вы можете узнать, какие ваши данные у нас есть, попросить исправить или удалить их и отозвать согласие. Для этого напишите на <span data-bind="email"></span>.</p>
+    </article>
+  </div>
+</div>
+
+<!-- Корзина -->
+<div class="drawer" id="cart" aria-hidden="true">
+  <div class="drawer-backdrop" data-action="close-cart"></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <header class="drawer-head">
+      <h2 id="cart-title">Ваш заказ</h2>
+      <button type="button" class="icon-btn" data-action="close-cart" aria-label="Закрыть">×</button>
+    </header>
+    <div class="drawer-body" id="cart-body"></div>
+  </aside>
+</div>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script src="assets/util.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/shop.js"></script>
+<script src="assets/admin.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
